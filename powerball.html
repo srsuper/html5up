@@ -1,0 +1,25 @@
+<div id="container">
+	<div>
+		<h1>สุ่ม Powerball</h1>
+		<p class="info">This is an easy -- and hopefully fun -- to use Powerball quick pick system.</p>
+		<p>
+		<input type="button" value="เริ่มสุ่ม" onClick="loopStart()">
+		<input type="button" value="สุ่มเลือก!" onClick="addNr()">
+		<input type="button" value="หยุดหมุน" onClick="loopStop()">
+		</p>
+		<p>
+		<input type="button" value="หมุน 1 ครั้ง!" onClick="QuickPick()">
+		<input type="button" value="คัดลอกล่าสุด" onClick="addNr()">
+		</p>
+		<div id="wrapPicks">
+			<span id="wrapNr">00-00-00-00-00</span><span id="wrapSpecial"> + 00</span>
+		</div>
+		<h2>&darr; สุ่มเลือก Powerball&darr;</h3>
+		<textarea id="myPicks" name="myPicks" rows="3"></textarea>
+		<div>
+			<input type="button" value="Copy All" onClick="copyQP()">
+			<input type="button" value="Clear All" onClick="resetNrs()">
+<p class="info">More lottery tools <a href="https://lottomatic.info" target="_blank"><strong>here</strong></a>.</p>
+		</div>
+	</div>
+</div>
