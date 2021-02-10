@@ -1,3 +1,234 @@
+ <!DOCTYPE html>
+ <html>
+  <head>
+   <meta charset="utf-8" />
+   <title>HTML5 basic skeleton</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+	body {
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color:#366;
+}	
+
+#container {
+	text-align:center;
+}
+
+#container > div {
+	display:inline-block;
+	max-width:400px;
+	margin:0 auto;
+	padding:20px;
+	border:5px solid #eaeaea;
+	background-color:#F2F2F2;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+h1, h2, h3 {
+	font-family:Tahoma, Geneva, sans-serif;
+	margin:0;
+	padding:0 0 5px 0;
+}
+
+h1 {
+	font-size:18px;
+	padding:10px 0;
+}
+h2 {
+	font-size:16px;
+}
+h3 {
+	font-size:14px;
+}
+
+p.info, textarea {
+	border:1px solid #eaeaea;
+	background-color:#fff;
+	margin:10px;
+	padding:10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#wrapPicks, 
+textarea {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size:26px;
+	font-weight:bold;
+}
+
+textarea {
+	line-height:30px;
+	padding:4px;
+	text-align:center;
+	color:#366;
+}
+
+input[type="button"], 
+input[type="reset"] {
+	background-color:#188ae2;
+	border:1px solid #188ae2;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color:#fff;
+	cursor:pointer;
+	font-size:14px;
+	font-weight:bold;
+	padding:6px 10px;
+}
+
+input[type="button"]:hover, 
+input[type="reset"]:hover {
+	background-color:#167ccb;
+	border:1px solid #167ccb;
+	webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+</style>
+<scitf>
+	var lotto_nrs_drawn = 5;							// numbers to be drawn...
+var lotto_pool = 69;									// ...from a pool of
+var repeat_num = 0; 									// allow repeating numbers per combination (0 = no; 1 = yes;)
+
+var lotto_nrs_special = 26; 					//special ball scope 1 to x; 0 if none
+var lotto_pool_special_different = 1; // 1 = yes; 0 = no; Is the special ball a separate draw?
+
+function resetNrs() {
+	document.getElementById('wrapNr').innerHTML = '00-00-00-00-00';	
+	document.getElementById('wrapSpecial').innerHTML = ' + 00';	
+	document.getElementById('myPicks').value = '';
+	loopStop();
+}
+
+
+var specialNr = '';
+var qps = new Array(lotto_nrs_drawn);
+var loop_x = 0;
+
+function wheelNrs() {
+	qps = [];
+	var i;
+	var x = -1;
+	
+	for (i = 0; i < lotto_nrs_drawn; i++) {
+		do {
+			qp_nr = rand(lotto_pool);
+			qp_nr = padNrs(qp_nr, 2);
+		
+			if(repeat_num == 0) {
+				x = qps.join().indexOf(qp_nr);
+			}
+		} while (x != -1);
+		
+		qps[i] = qp_nr;
+	}
+	
+	if (lotto_nrs_special != 0) {
+		pickSpecial();
+		spinSpecial(specialNr);
+	}
+
+	spinNr(qps.join('-'));
+}
+
+function pickSpecial() {
+	if(lotto_pool_special_different == 0) {
+		var x = -1;
+		
+		do {
+			var qp_special = padNrs(rand(lotto_nrs_special), 2);
+			x = qps.join().indexOf(qp_special);
+		} while(x != -1);
+	} else {
+		var qp_special = padNrs(rand(lotto_nrs_special), 2);
+	}
+
+	specialNr = ' + ' + qp_special;
+}
+
+
+function loopStart() {
+	loop_x = 0;
+	loopDo();
+}	
+
+function loopDo() {
+	if(loop_x == 0) {
+		wheelNrs()
+		window.setTimeout('loopDo()', 100);
+	}
+}
+ 
+function loopStop() {
+	loop_x = 1;
+}	
+
+function QuickPick() {
+	loop_x = 1;
+	wheelNrs();
+}
+
+function addNr() {
+	var myPicksEl = document.getElementById('myPicks');
+	var myPicksVal = document.getElementById('myPicks').value;
+	
+	var newLine = '\r' + '\n'; // CR and LF to append
+	qps.sort(function(a, b) { return a - b });
+	var qp_nr = qps.join('-');
+	var specialNrPrint = '';
+	
+	if (qp_nr >= 0) { return; }
+	
+	if (lotto_nrs_special != 0) {
+		var specialNrPrint = specialNr;
+		myPicksEl.value = qp_nr + specialNrPrint + newLine + myPicksVal;
+	} else {
+		myPicksEl.value = qp_nr + newLine + myPicksVal;
+	}
+}
+
+function padNrs(the_nr, the_length) {
+	var str = '' + the_nr;
+	
+	while (str.length < the_length) 
+	{
+		str = '0' + str;
+	}
+	
+	return str;
+}
+
+function spinNr(txtMsg) {
+	wrapNr.firstChild.data = txtMsg;
+}
+
+function spinSpecial(txtMsg) {
+	wrapSpecial.firstChild.data = txtMsg;
+}
+
+function copyQP(theField) {
+	var myPicksEl = document.getElementById('myPicks');
+	myPicksEl.focus();
+	myPicksEl.select();
+	therange = document.createRange();
+	document.execCommand('Copy');
+}
+
+function rand(n)
+{
+	return (Math.floor(Math.random() * n + 1 ));
+}
+</script>
+	</head>
+	<body>
 <div id="container">
 	<div>
 		<h1>สุ่ม Powerball</h1>
@@ -23,3 +254,5 @@
 		</div>
 	</div>
 </div>
+  </body>
+ </html>
