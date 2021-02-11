@@ -50,7 +50,7 @@
     </div>
   </div>
 </div>
-<button id="btnMsg" onclick="sendMsg()">Send Message</button>
+
 <div class="container" > 
   <div class="center">
   <div class="row">
@@ -158,6 +158,28 @@
 
 <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
 <script>
+        async function sendMsg() {
+        if (liff.getContext().type !== 'none') {
+          try {
+            await liff.sendMessages(messages)
+            liff.closeWindow()
+          } catch (err) {
+            alert('❌ Error, ' + err.message)
+          }
+        }
+      }
+
+      function getContext() {
+        document.querySelector('#type').append(liff.getContext().type)
+        document.querySelector('#viewType').append(liff.getContext().viewType)
+        document.querySelector('#utouId').append(liff.getContext().utouId)
+        document.querySelector('#roomId').append(liff.getContext().roomId)
+        document.querySelector('#groupId').append(liff.getContext().groupId)
+      }
+  const messages = [
+        { type: 'sticker', stickerId: 1, packageId: 1 },
+        { type: 'text', text: 'คร่อกกกกกกก zZzZzZzZ'+ .append(profile.displayName) }
+      ]
   async function getUserProfile() {
     const profile = await liff.getProfile()
     document.getElementById("pictureUrl").src = profile.pictureUrl
