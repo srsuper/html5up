@@ -225,13 +225,15 @@
       }).catch(err => console.error(err));
      
     }
-    liff.init({ liffId: "1655655902-RM1oV1m1" }, successCallback, errorCallback); => {
+    liff.init({ liffId: "1655655902-RM1oV1m1" }, () => {
       if (liff.isLoggedIn()) {
         runApp()
       } else {
         liff.login();
       }
-    }, err => console.error(err.code, error.message);
+    }, err => console.error(err.code, error.message));
+   // Using a callback
+  liff.init({ liffId: "1655655902-RM1oV1m1" }, successCallback, errorCallback);
   </script>
   </body>
  </html>
