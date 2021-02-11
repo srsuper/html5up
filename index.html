@@ -47,9 +47,34 @@
           <div class="input-group-prepend">
             <div class="input-group-text">เลข Ⓜ️</div>
           </div>
-          <input type="number" class="form-control" name="ffnum[]" id="ffnum[]" placeholder="เลขที่จะแทง" required>
+          <input type="number" class="form-control" name="ffnum" id="ffnum" placeholder="เลขที่จะแทง" required>
         </div>
-
+        <input type="button" value="Marks check" onclick='marksgrade()' />
+        <script language="JavaScript">
+          function marksgrade()
+          {
+          if (document.frmprice.ffnum.value.match(/\d{3}/g))
+          document.write('ประเภท 3 ตัว');
+          else
+          if (document.frmprice.ffnum.value.match(/\d{2}/g))
+          {
+          document.write('ประเภท 2 ตัว');
+          }
+          else
+          if (document.frmprice.ffnum.value >=70 && document.frmprice.ffnum.value <80)
+          {
+          document.write('Grade B+');
+          }
+          else
+          if (document.frmprice.ffnum.value >=60 && document.frmprice.ffnum.value <70)
+          {
+          document.write('Grade B');
+          }
+          else
+          document.write('กรุณา ใส่เลขค่ะ');
+          }
+          marksgrade(); 
+          </script>
       </div>
    </div>
    <div class="form-row">
