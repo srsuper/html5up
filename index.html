@@ -202,13 +202,13 @@
         document.querySelector('#groupId').append(liff.getContext().groupId)
       }
     }
-    liff.init({ liffId: "1655655902-RM1oV1m1" }, () => {
+    liff.init({ liffId: "1655655902-RM1oV1m1" }, successCallback, errorCallback);() => {
       if (liff.isLoggedIn()) {
         runApp()
       } else {
         liff.login();
       }
-    }, err => console.error(err.code, error.message));
+    }, err => console.error(err.code, error.message);
   </script>
   </body>
  </html>
