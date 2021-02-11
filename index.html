@@ -205,7 +205,7 @@
         document.querySelector('#groupId').append(liff.getContext().groupId)
       }
     }
-    liff.init({ liffId: "1655655902-RM1oV1m1" }, successCallback, errorCallback);() => {
+    liff.init({ liffId: "1655655902-RM1oV1m1" }, successCallback, errorCallback () => {
       if (liff.isLoggedIn()) {
         runApp()
       } else {
