@@ -47,9 +47,9 @@
           <div class="input-group-prepend">
             <div class="input-group-text">เลข Ⓜ️</div>
           </div>
-          <input type="number" class="form-control" name="ffnum" id="ffnum" placeholder="เลขที่จะแทง" required>
+          <input type="number" class="form-control" name="ffnum" id="ffnum" placeholder="เลขที่จะแทง" onblur="marksgrade()" required>
         </div>
-        <input type="button" value="Marks check" onclick='marksgrade()' />
+        <input type="text" name="marksgrade" style="border:none;" readonly>
         <script language="JavaScript">
           function marksgrade()
           {
