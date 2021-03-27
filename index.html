@@ -47,9 +47,8 @@
      <div class="center">
      <div class="row">
        <div class="col-lg-12">
-         <h2>FUU LOTTO</h2>
+         <h2>RODMAY KHONWAN</h2>
          <p>
-         ประจำงวด วันที่ : 
          <p>
        </div>
        <div class="card" style="width: 18rem;">
@@ -57,34 +56,16 @@
        
        <div class="card-body">
        <h5 id="displayName" class="card-title" class="font-weight-bold">displayName:</h5>
-       <p id="statusMessage" class="card-text"><b>statusMessage:</p>
-       <p id="userId"class="card-text"><b>Id:</b></p>
-       <p id="getDecodedIDToken"><b>email:</b> </p>
-       <button id="btnMsg" onclick="sendMsg()" class="btn btn-primary">TESTr</button>
-       <button id="btnShare" onclick="shareMsg()" class="btn btn-primary">Share</button>
+       <button id="btnMsg" onclick="sendMsg()" class="btn btn-primary">ยืนยัน</button>
+       <input type="text" class="form-control" name="name" id="name" placeholder="ชื่อล็อคอิน" onblur='myFunction()' value="" required>
+       <input type="date" class="form-control" name="date" id="date" placeholder="วันเดือนปี" onblur='myFunction()' value="" required>
+       <input type="text" class="form-control" name="tel" id="tel" placeholder="เบอร์โทร" onblur='myFunction()' value="" required>
        </div>
        </div>
       </div>
     </div>
   </div>
 
-
-<div class="container" > 
-  <div class="center">
-  <div class="row">
-   <form id="frmprice" name="frmprice" method="POST" >
-    <table>
-     <?php for($i=1;$i<=5;$i++){ ?>
-     <div class="form-row">
-       <div class="col-auto">
-         <label class="sr-only" for="num">แทงเลข</label>
-         <div class="input-group mb-2">
-           <div class="input-group-prepend">
-             <div class="input-group-text">เลข Ⓜ️</div>
-           </div>
-           <input type="number" class="form-control" name="ffnum" id="ffnum" placeholder="เลขที่จะแทง" onblur='myFunction()' value="" required>
-         </div>
-         <p id="demo"></p>
 
          <script>
           function myFunction() {
