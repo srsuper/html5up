@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Used Car Payment Calculator</title>
+    <title>::ROD MAY::</title>
 
     <!-- Compiled and minified CSS -->
     <link
@@ -41,7 +41,7 @@
       <!-- Start Header Content -->
       <div class="row">
         <div class="col s12 center-align">
-          <h5>โปรมแกรมคำนวณค่างวดรถยนต์มือสอง</h5>
+          <h5>จองโต๊ะ รถเมย์ นครสวรรค์</h5>
         </div>
       </div>
       <!-- End Header Content -->
@@ -59,7 +59,7 @@
                 value="promotion"
                 checked
               />
-              <span style="margin-right: 24px">ลูกค้าประวัติดี</span>
+              <span style="margin-right: 24px">ลูกค้าเกิดวันนี้</span>
             </label>
             <!-- </p>
           <p> -->
@@ -71,37 +71,37 @@
           <!-- End Check Customer Type -->
 
           <!-- Start Select Car Years -->
-          <label><h6>ปีจดทะเบียนรถยนต์</h6></label>
+          <label><h6>โซน</h6></label>
           <select id="carYear" class="browser-default" required class="validate">
-            <option value="" disabled selected>กรุณาเลือกปีจดทะเบียน</option>
-            <option value="1">2020</option>
-            <option value="2">2019</option>
-            <option value="3">2018</option>
-            <option value="4">2017</option>
-            <option value="5">2016</option>
-            <option value="6">2015</option>
-            <option value="7">2014</option>
-            <option value="8">2013</option>
+            <option value="" disabled selected>กรุณาเลือกZone</option>
+            <option value="1">หน้าตู้ลำโพง</option>
+            <option value="2">ข้างตู้ลำโพง</option>
+            <option value="3">หน้าห้องน้ำ</option>
+            <option value="4">หน้าครัว</option>
+            <option value="5">ขอบทางเดิน</option>
+            <option value="6">ในห้องน้ำ</option>
+            <option value="7">VIP</option>
+            <option value="8">นอกร้าน</option>
           </select>
           <!-- End Select Car Years -->
 
           <!-- Start Car Price Input -->
           <div class="input-field">
-            <label for="carPrice"><h6>ราคารถยนต์ (บาท)</h6></label>
+            <label for="carPrice"><h6>ระบุเลขโต๊ะ</h6></label>
             <input id="carPrice" type="text" required class="validate" />
           </div>
           <!-- End Car Price Input -->
 
           <!-- Start Down Payment Input -->
           <div class="input-field">
-            <label for="downPayment"><h6>เงินดาวน์ (บาท)</h6></label>
+            <label for="downPayment"><h6>เปิดโปร</h6></label>
             <input id="downPayment" type="text" required class="validate" />
           </div>
           <!-- End Down Payment Input -->
 
           <!-- Start Submit Button -->
           <button id="btn" class="btn waves-effect waves-light" type="submit">
-            คำนวณ
+            จองโต๊ะ
           </button>
           <!-- End Submit Button -->
         </form>
@@ -115,9 +115,9 @@
       <!-- Start Footer -->
       <div id="footer" class="center-align">
         <p>
-          © 2021 P Auto
+          © 2021 PNCK@SKT[คุณออ๊ด เมียตบยังหลบได้]
           <br />
-          โทร. 095-826-3339
+          โทร. 062-815-7888
         </p>
       </div>
       <!-- End Footer -->
@@ -160,30 +160,28 @@
           customer.addEventListener("click", function (e) {
             if (e.target.checked && e.target.value === "normal") {
               document.getElementById("carYear").innerHTML = `
-                <option value="" disabled selected>กรุณาเลือกปีจดทะเบียน</option>
-                <option value="1">2020</option>
-                <option value="2">2019</option>
-                <option value="3">2018</option>
-                <option value="4">2017</option>
-                <option value="5">2016</option>
-                <option value="6">2015</option>
-                <option value="7">2014</option>
-                <option value="8">2013</option>
-                <option value="9">2012</option>
-                <option value="10">2011</option>
+            <option value="" disabled selected>กรุณาเลือกZONE</option>
+            <option value="1">หน้าตู้ลำโพง</option>
+            <option value="2">ข้างตู้ลำโพง</option>
+            <option value="3">หน้าห้องน้ำ</option>
+            <option value="4">หน้าครัว</option>
+            <option value="5">ขอบทางเดิน</option>
+            <option value="6">ในห้องน้ำ</option>
+            <option value="7">VIP</option>
+            <option value="8">นอกร้าน</option>
               `;
             }
             if (e.target.checked && e.target.value === "promotion") {
               document.getElementById("carYear").innerHTML = `
-                <option value="" disabled selected>กรุณาเลือกปีจดทะเบียน</option>
-                <option value="1">2020</option>
-                <option value="2">2019</option>
-                <option value="3">2018</option>
-                <option value="4">2017</option>
-                <option value="5">2016</option>
-                <option value="6">2015</option>
-                <option value="7">2014</option>
-                <option value="8">2013</option>
+            <option value="" disabled selected>กรุณาเลือกZONE</option>
+            <option value="1">หน้าตู้ลำโพง</option>
+            <option value="2">ข้างตู้ลำโพง</option>
+            <option value="3">หน้าห้องน้ำ</option>
+            <option value="4">หน้าครัว</option>
+            <option value="5">ขอบทางเดิน</option>
+            <option value="6">ในห้องน้ำ</option>
+            <option value="7">VIP</option>
+            <option value="8">นอกร้าน</option>
               `;
             }
           });
