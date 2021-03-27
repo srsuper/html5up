@@ -1,94 +1,36 @@
-<!DOCTYPE html>
-<html lang="th" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XP LIFF</title>
-    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-    <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", () => {
-      liff
-        .init({
-          liffId: '1655602828-bvj2746y'
-        })
-        .then(() => {
-          document.getElementById('go').addEventListener('click', () => {
-            if (!liff.isInClient()) {
-              document.getElementById('log').value += 'ng\n';
-            } else {
-              liff.sendMessages([{
-                'type': 'template',
-                'altText': document.getElementById('AltText').value,
-                'template': {
-                  'type': 'buttons',
-                  'thumbnailImageUrl': document.getElementById('ThumbnailImageUrl').value,
-                  'imageAspectRatio': document.getElementById('ImageAspectRatio').value,
-                  'imageSize': document.getElementById('ImageSize').value,
-                  'imageBackgroundColor': document.getElementById('ImageBackgroundColor').value,
-                  'title': document.getElementById('Title').value,
-                  'text': document.getElementById('Text').value,
-                  'defaultAction': {
-                    'type': 'uri',
-                    'label': document.getElementById('Label0').value,
-                    'uri': document.getElementById('Uri0').value
-                  },
-                  'actions': [{
-                    'type': 'uri',
-                    'label': document.getElementById('Label1').value,
-                    'uri': document.getElementById('Uri1').value
-                  },{
-                    'type': 'uri',
-                    'label': document.getElementById('Label2').value,
-                    'uri': document.getElementById('Uri2').value
-                  },{
-                    'type': 'uri',
-                    'label': document.getElementById('Label3').value,
-                    'uri': document.getElementById('Uri3').value
-                  },{
-                    'type': 'uri',
-                    'label': document.getElementById('Label4').value,
-                    'uri': document.getElementById('Uri4').value
-                  }]
-                }
-              }]).then(function() {
-                document.getElementById('log').value += 'completed\n';
-              }).catch(function(error) {
-                document.getElementById('log').value += error + '\n';
-              });
-            }
-          });
-        })
-        .catch((err) => {
-          document.getElementById('log').value = 'init ng\n' + err;
-        });
-    });
-    </script>
-  </head>
-  <body>
-    <div>
-      <h3>สมัครสมาชิก จองโต๊ะรถเมย์</h3>
-      <div>altText<input type="text" id="AltText" value="CrossPower"/></div>
-      <div>thumbnailImageUrl<input type="text" id="ThumbnailImageUrl" value="https://www.x-power.co.jp/images/header/logo.png"/></div>
-      <div>imageAspectRatio
-        <select id="ImageAspectRatio">
-          <option value="rectangle" selected>rectangle：1.51:1</option>
-          <option value="square">square：1:1</option>
-        </select>
-      </div>
-      <div>imageSize
-        <select id="ImageSize">
-          <option value="cover">cover</option>
-          <option value="contain" selected>contain</option>
-        </select>
-      </div>
-      <div>imageBackgroundColor<input type="text" id="ImageBackgroundColor" value="#333333"/></div>
-      <div>ชื่อ<input type="text" id="Title" value=""/></div>
-      <div>เบอร์โทร<input type="text" id="Text" value=""/></div>
-      <div>TOP<input type="text" id="Label0" value="TOP"/></div>
-      <div>PIC URI<input type="text" id="Uri0" value="https://www.x-power.co.jp/"/></div>
-      <div>label1<input type="text" id="Label1" value=""/></div>
-      <input type="button" id="go" value="จองโต๊ะ"/>
-      <textarea id="log" style="width:96%;height:100px;"></textarea>
-    </div>
-  </body>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My LIFF v2</title>
+  <style>
+    #pictureUrl { display: block; margin: 0 auto }
+  </style>
+</head>
+<body>
+  <img id="pictureUrl" width="25%">
+  <p id="userId"></p>
+  <p id="displayName"></p>
+  <p id="statusMessage"></p>
+  <p id="getDecodedIDToken"></p>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
+  <script>
+    function runApp() {
+      liff.getProfile().then(profile => {
+        document.getElementById("pictureUrl").src = profile.pictureUrl;
+        document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
+        document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
+        document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
+      }).catch(err => console.error(err));
+    }
+    liff.init({ liffId: "1655602828-bvj2746y" }, () => {
+      if (liff.isLoggedIn()) {
+        runApp()
+      } else {
+        liff.login();
+      }
+    }, err => console.error(err.code, error.message));
+  </script>
+</body>
 </html>
