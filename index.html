@@ -1,157 +1,160 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>RODMAY</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <p id="os"><b>OS:</b> </p>
+  <p id="language"><b>Language:</b> </p>
+  <p id="version"><b>Version:</b> </p>
+  <p id="isInClient"><b>isInClient:</b> </p>
+  <p id="accessToken"><b>AccessToken:</b> </p>
+  <img id="pictureUrl">
+  <p id="userId"><b>userId:</b> </p>
+  <p id="displayName"><b>displayName:</b> </p>
+  <p id="statusMessage"><b>statusMessage:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>
+  <p id="type"><b>type:</b> </p>
+  <p id="viewType"><b>viewType:</b> </p>
+  <p id="utouId"><b>utouId:</b> </p>
+  <p id="roomId"><b>roomId:</b> </p>
+  <p id="groupId"><b>groupId:</b> </p>
+  <p id="friendship"><b>isFriendship:</b> </p>
+  <p id="scanCode"><b>Code:</b> </p>
+  <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+  <p id="universalLink1"><b>Universal Link:</b> </p>
+  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
+  <p><a href="path/?param=9">Link to Path</a></p>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-      #container {
-	text-align:center;
-      }
-     .center {
-       margin: auto;
-       width: 90%;
-       
-       padding: 10px;
-     }
-   </style>
-   <style>
-    #pictureUrl { 
-      display: block; 
-      margin: auto;
-      padding: 10px;
-    }
-  </style>
-   <script language="JavaScript">
-     
-    function fncSum()
-    {
-     var num = '';     var sum = 0;
-     for(var i=0;i<document.frmprice['price[]'].length;i++){
-      num = document.frmprice['price[]'][i].value;
-      if(num!=""){
-       sum += parseFloat(num);
-      }
-     }
-     document.frmprice.sumprice.value = sum;}
-   </script>
- 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-  </head>
-  <body>
-   <div class="container" > 
-     <div class="center">
-     <div class="row">
-       <div class="col-lg-12">
-         <h2>RODMAY KHONWAN</h2>
-         <p>
-         <p>
-       </div>
-       <div class="card" style="width: 18rem;">
-       <img class="rounded-circle" id="pictureUrl" width="25%">
-       
-       <div class="card-body">
-       
-       <h5 id="displayName" class="card-title" class="font-weight-bold">displayName:</h5>
-       <form>
-       <input type="text" class="form-control" name="name" id="name" placeholder="ชื่อล็อคอิน" value="" required>
-       <input type="date" class="form-control" name="date" id="date" placeholder="วันเดือนปี" value="" required>
-       <input type="number" class="form-control" name="tel" id="tel" placeholder="เบอร์โทร" value="" required>
-	       
-	       <button id="btnMsg" onclick="sendMsg()" class="btn btn-primary">ยืนยัน</button>
-	       </from>
-       </div>
-       </div>
-      </div>
-    </div>
-  </div>
+  <button id="btnMsg" onclick="sendMsg()">Send Message</button>
+  <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
+  <button onclick="openWindow()">Open Window</button>
+  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
+  <button id="btnLogOut" onclick="logOut()">Log Out</button>
+  <button id="btnClose" onclick="closed()">Close</button>
 
-
-
- 
- 
- </div>
- </div>
- </div>
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
- <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
-
- 
-
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
+  <script src="js/vconsole.min.js"></script>
   <script>
-         async function shareMsg() {
-        await liff.shareTargetPicker([
-          {
-            type: 'text',
-            text: 'แทงหวย ง่าย จ่ายเต็ม กับ FUU LOTTO https://line.me/R/ti/p/@537yvvlj'
-          },
-          ...messages
-        ])
-      }
-
-	async function getFriendship() {
-        const friend = await liff.getFriendship()
-        document.getElementById('friendship').append(friend.friendFlag)
-        if (!friend.friendFlag) {
-          if (confirm('คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?')) {
-            window.location = 'https://line.me/R/ti/p/@537yvvlj'
-          }
-        }
-      }
-
-      async function sendMsg() {
-        if (liff.getContext().type !== 'none') {
-          await liff.sendMessages([
-            {
-              type: 'sticker',
-              stickerId: 406,
-              packageId: 100
-            },
-           {
-            type: 'text',
-            text: 'แทงหวย ง่าย จ่ายเต็ม กับ FUU LOTTO https://line.me/R/ti/p/@537yvvlj'
-          }
-          ])
-          alert('Message sent')
-        }
-      }
-
-      function getContext() {
-        if (liff.getContext() != null) {
-          document.getElementById('type').append(liff.getContext().type)
-          document.getElementById('viewType').append(liff.getContext().viewType)
-          document.getElementById('utouId').append(liff.getContext().utouId)
-          document.getElementById('roomId').append(liff.getContext().roomId)
-          document.getElementById('groupId').append(liff.getContext().groupId)
-        }
-      }
-
-    function runApp() {
-      liff.getProfile().then(profile => {
-        document.getElementById("pictureUrl").src = profile.pictureUrl;
-        document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
-        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
-        document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
-        document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
-      }).catch(err => console.error(err));
-     
-    }
-    liff.init({ liffId: "1655602828-Ok0eDZWP" }, () => {
-      if (liff.isLoggedIn()) {
-        runApp()
-      } else {
-        liff.login();
-      }
-    }, err => console.error(err.code, error.message));
-   // Using a callback
-  
+    var vConsole = new VConsole()
+    console.log("Hello World!")
   </script>
-  </body>
- </html>
+
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.4.1/sdk.js"></script>
+  <script>
+    function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink1").append(link1)
+
+      liff.permanentLink.setExtraQueryParam('param=9')
+      const link2 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink2").append(link2)
+    }
+
+    async function shareMsg() {
+      await liff.shareTargetPicker([
+        {
+          type: "text",
+          text: "This message was sent by ShareTargetPicker"
+        }
+      ])
+    }
+
+    function logOut() {
+      liff.logout()
+      window.location.reload()
+    }
+
+    function closed() {
+      liff.closeWindow()
+    }
+
+    async function scanCode() {
+      const result = await liff.scanCode()
+      document.getElementById("scanCode").append(result.value)
+    }
+    
+    function openWindow() {
+      liff.openWindow({
+        url: "https://line.me",
+        external: true
+      })
+    }
+
+    async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag) {
+        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+          window.location = "https://line.me/R/ti/p/@zodiac_superclub"
+        }
+      }
+    }
+
+    async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ])
+        alert("Message sent")
+      }
+    }
+
+    function getContext() {
+      if (liff.getContext() != null) {
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType)
+        document.getElementById("utouId").append(liff.getContext().utouId)
+        document.getElementById("roomId").append(liff.getContext().roomId)
+        document.getElementById("groupId").append(liff.getContext().groupId)
+      }
+    }
+
+    async function getUserProfile() {
+      const profile = await liff.getProfile()
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+    }
+    
+    function getEnvironment() {
+      document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("accessToken").append(liff.getAccessToken())
+      document.getElementById("isInClient").append(liff.isInClient())
+      if (liff.isInClient()) {
+        document.getElementById("btnLogOut").style.display = "none"
+      } else {
+        document.getElementById("btnMsg").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
+      }
+    }
+
+    async function main() {
+      liff.ready.then(() => {
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+        if (liff.isLoggedIn()) {
+          getEnvironment()
+          getUserProfile()
+          getContext()
+          getFriendship()
+          createUniversalLink()
+        } else {
+          liff.login()
+        }
+      })
+      await liff.init({ liffId: "1655565233-klvEGxwM" })
+    }
+    main()
+  </script>
+</body>
+</html>
