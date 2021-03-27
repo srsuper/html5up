@@ -55,11 +55,15 @@
        <img class="rounded-circle" id="pictureUrl" width="25%">
        
        <div class="card-body">
+       
        <h5 id="displayName" class="card-title" class="font-weight-bold">displayName:</h5>
-       <button id="btnMsg" onclick="sendMsg()" class="btn btn-primary">ยืนยัน</button>
-       <input type="text" class="form-control" name="name" id="name" placeholder="ชื่อล็อคอิน" onblur='myFunction()' value="" required>
-       <input type="date" class="form-control" name="date" id="date" placeholder="วันเดือนปี" onblur='myFunction()' value="" required>
-       <input type="text" class="form-control" name="tel" id="tel" placeholder="เบอร์โทร" onblur='myFunction()' value="" required>
+       <form>
+       <input type="text" class="form-control" name="name" id="name" placeholder="ชื่อล็อคอิน" value="" required>
+       <input type="date" class="form-control" name="date" id="date" placeholder="วันเดือนปี" value="" required>
+       <input type="number" class="form-control" name="tel" id="tel" placeholder="เบอร์โทร" value="" required>
+	       
+	       <button id="btnMsg" onclick="sendMsg()" class="btn btn-primary">ยืนยัน</button>
+	       </from>
        </div>
        </div>
       </div>
@@ -67,79 +71,7 @@
   </div>
 
 
-         <script>
-          function myFunction() {
-            
-            var text;
-            
-            var str = document.frmprice['ffnum'].value;
-            
-            
 
-
-            
-            
-            switch(str) {
-              case "19":
-              text = "1ตัว is good!";
-              break;
-              
-              case "123":
-              text = "How you like them apples?";
-              break;
-              default:
-              text = "I have never heard of that fruit...";
-            }
-            document.getElementById("demo").innerHTML = text;
-          }
-          </script>
-        
-       </div>
-    </div>
-    <div class="form-row">
-     <div class="col-auto">
-       <label class="sr-only" for="inlineFormInputGroup">จำนวนเงิน</label>
-       <div class="input-group mb-2">
-         <div class="input-group-prepend">
-           <div class="input-group-text">บน⭐</div>
-         </div>
-         <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="แทง บน" name="price[]" id="price[]" onkeyup="fncSum();" required>
-       </div>
-       <div class="input-group mb-2">
-         <div class="input-group-prepend">
-           <div class="input-group-text">ล่าง⭐</div>
-         </div>
-         <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="แทง ล่าง" name="price[]" id="price[]" onkeyup="fncSum();">
-       </div>
-       <div class="input-group mb-2">
-         <div class="input-group-prepend">
-           <div class="input-group-text">โต๊ด⭐</div>
-         </div>
-         <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="แทง โต๊ด" name="price[]" id="price[]" onkeyup="fncSum();">
-       </div>
-     </div>
-   </div>
-     
-     
- 
-     <div class="custom-control custom-radio custom-control-inline">
-   <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
-   <label class="custom-control-label" for="customRadioInline1">3/6ประตู</label>
-  </div>
-  <div class="custom-control custom-radio custom-control-inline">
-   <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
-   <label class="custom-control-label" for="customRadioInline2">เลขปักธงชัย</label>
-  </div>
-     <?php } ?>
-     
-      <td>
-      <label>💸ยอดเงิน : </label>
-      <input type="text" name="sumprice" style="font-size:50px;color:red;border:none;" class="font-weight-bold" readonly></td>
-     
-    </table>
-    <button class="btn btn-primary mb-2" type="submit">💸คำนวณ</button>
- </form>
- 
  
  
  </div>
