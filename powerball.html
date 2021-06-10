@@ -231,9 +231,35 @@ function rand(n)
 	</head>
 	<body>
 <div id="container">
+	<!-- Messenger ปลั๊กอินแชท Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your ปลั๊กอินแชท code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "174011881060710");
+      chatbox.setAttribute("attribution", "biz_inbox");
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v11.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/th_TH/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 	<div>
-		<h1>ออกเลข FUULOTTO</h1>
-		<p class="info">FUU LOTTO -- ออกหวยยี่กี่ -- 88รอบ ต่อ วัน</p>
+		<h1>ออกเลข เสี่ยง lotto</h1>
+		<p class="info">เสี่ยง lotto -- ออกหวยยี่กี่ -- 88รอบ ต่อ วัน</p>
 		<p>
 		<input type="button" value="เริ่มสุ่ม" onClick="loopStart()">
 		<input type="button" value="สุ่มเลือก!" onClick="addNr()">
